@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 02:42:14 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/08 04:43:57 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/09 16:35:08 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,21 @@ void	lesser_swap(t_stack *stack)
 	{
 		if (lesser_a == 1)
 		{
-			if (greater_b == 1)
+			if (ft_atoi(stack->a[0]) > ft_atoi(stack->a[ft_stacklen(stack->a) - 1]))
+				rotate_a(stack);
+			else if (greater_b == 1)
 				swap_ab(stack);
 			else
 				swap_a(stack);
 		}
 		else if (lesser_a == 2)
 		{
-			if (greater_b == 2)
+			if (ft_atoi(stack->a[0]) > ft_atoi(stack->a[1]))
+			{
+				swap_a(stack);
+				reverse_a(stack);
+			}
+			else if (greater_b == 2)
 				reverse_ab(stack);
 			else
 				reverse_a(stack);
@@ -92,6 +99,39 @@ void	lesser_swap(t_stack *stack)
 	}
 }
 
+void	small_sort(t_stack *stack)
+{
+	int	len;
+	int	lesser_a;
+
+	len = ft_stacklen(stack->a);
+	if (len <= 1)
+		return ;
+	lesser_a = lesser_check(stack->a);
+	while (!is_sorted(stack->a))
+	{
+		if (lesser_a == 1)
+		{
+			if (ft_atoi(stack->a[0]) > ft_atoi(stack->a[ft_stacklen(stack->a) - 1]))
+				rotate_a(stack);
+			else
+				swap_a(stack);
+		}
+		else if (lesser_a == 2)
+		{
+			if (ft_atoi(stack->a[0]) > ft_atoi(stack->a[1]))
+				swap_a(stack);
+			reverse_a(stack);
+		}
+		else
+		{
+			rotate_a(stack);
+			swap_a(stack);
+		}
+		lesser_a = lesser_check(stack->a);
+	}
+}
+
 int	push_swap(t_stack *stack)
 {
 	int	len;
@@ -99,7 +139,7 @@ int	push_swap(t_stack *stack)
 	while(!(is_sorted(stack->a) && len == ft_stacklen(stack->a)))
 	{
 		lesser_swap(stack);
-		while(!is_sorted(stack->a))
+		while(!(is_sorted(stack->a)))
 		{
 			push_b(stack);
 			lesser_swap(stack);
