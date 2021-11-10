@@ -13,6 +13,7 @@ Write a program in C which calculates and displays on the standard output the sm
 ## Mandatory
 
 The program must display the smallest list of instructions possible to sort the stack a, the smallest number being at the top.
+
 To do this you have the following operations at your disposal:
 
 ```sa : swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements).
@@ -31,6 +32,7 @@ rrr : rra and rrb at the same time.
 ## Bonus
 
 • Write a program named checker, which will get as an argument the stack ``a`` formatted as a list of integers. The first argument should be at the top of the stack. If no argument is given checker stops and displays nothing
+
 • If after executing those instructions, stack ``a`` is actually sorted and ``b`` is empty, then checker must display "OK" followed by a ’\n’ on the standard output. In every other case, checker must display "KO" followed by a ’\n’ on the standard output.
 
 
