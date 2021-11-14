@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 19:26:16 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/07 19:26:31 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/15 00:17:52 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	exit_err(char *str)
 {
-	ft_printf(str);
+	ft_putstr_fd(str, 2);
 	exit(EXIT_FAILURE);
 }
