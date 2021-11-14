@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 18:16:53 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/14 19:45:13 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/14 20:18:58 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	print_stacks(t_stack *stack)
 		else
 			ft_printf("\n");
 	}
-	if(is_sorted(stack->a))
+	if (is_sorted(stack->a))
 		ft_printf("Stack A is sorted with a total of %d instructions\n",
 			stack->in);
 	else
@@ -39,12 +39,12 @@ void	print_stacks(t_stack *stack)
 void	print_interval(t_stack *stack)
 {
 	int	i;
-	
+
 	i = -1;
 	if (ft_stacklen(stack->a) > MIN_QSORT)
 	{
 		ft_printf("Intervals:\n");
-		while(stack->interval[++i])
+		while (stack->interval[++i])
 			ft_printf("%s\n", stack->interval[i]);
 	}
 }
