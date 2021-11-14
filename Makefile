@@ -13,7 +13,7 @@ NAME = push_swap
 
 SRCS_FILES = main.c init.c push_swap.c print.c err.c free.c \
 			op_common.c op_stack_a.c op_stack_b.c op_stack_ab.c \
-			check.c
+			algos.c check.c
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 

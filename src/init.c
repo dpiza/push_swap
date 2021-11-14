@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 14:18:57 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/14 20:14:07 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/14 21:14:29 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,6 @@ char	**fill_stack(int argc, char **argv)
 	}
 	a[argc - 1] = '\0';
 	return (a);
-}
-
-void	bubble_sort(char **arr)
-{
-	int		i;
-	char	*tmp;
-
-	while (!(is_sorted(arr)))
-	{
-		i = 0;
-		while (i < ft_stacklen(arr) - 1)
-		{
-			if (ft_atoi(arr[i]) > ft_atoi(arr[i + 1]))
-			{
-				tmp = arr[i];
-				arr[i] = arr[i + 1];
-				arr[i + 1] = tmp;
-			}
-			i++;
-		}
-	}
 }
 
 char	**define_interval(char **arr, int len)
