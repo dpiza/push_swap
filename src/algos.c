@@ -6,11 +6,40 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 21:13:28 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/14 22:17:14 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/14 22:35:40 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	select_sort(t_stack *stack)
+{
+	int	max;
+	int	max_pos;
+	int	i;
+
+	i = -1;
+	max = ft_atoi(stack->b[0]);
+	max_pos = 0;
+	while (stack->b[++i])
+	{
+		if (ft_atoi(stack->b[i]) > max)
+		{
+			max = ft_atoi(stack->b[i]);
+			max_pos = i;
+		}
+	}
+	if (max_pos < (ft_stacklen(stack->b) / 2))
+	{
+		while (max_pos-- > 0)
+			rotate_b(stack);
+	}
+	else
+	{
+		while (max_pos++ < ft_stacklen(stack->b))
+			reverse_b(stack);
+	}
+}
 
 void	lesser_swap(t_stack *stack)
 {

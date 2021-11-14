@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 18:40:03 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/14 22:25:32 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/14 22:35:51 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_stack {
 
 int		push_swap(t_stack *stack);
 
+void	select_sort(t_stack *stack);
 void	lesser_swap(t_stack *stack);
 void	small_sort(t_stack *stack);
 void	bubble_sort(char **arr);
