@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 18:36:53 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/09 18:53:09 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/14 00:56:41 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,30 +87,6 @@ void	add_op(char	**stack_op, char *op)
 	*stack_op = tmp;
 }
 
-void	print_stacks(t_stack *stack)
-{
-	int	i;
-
-	i = -1;
-	ft_printf("Stack A (%d):\tStack B (%d):\t\n",
-		ft_stacklen(stack->a), ft_stacklen(stack->b));
-	while (stack->a[++i] || stack->b[i])
-	{
-		if (stack->a[i])
-			ft_printf("%s", stack->a[i]);
-		if (stack->b[i])
-			ft_printf("\t\t%s\n", stack->b[i]);
-		else
-			ft_printf("\n");
-	}
-	if(is_sorted(stack->a))
-		ft_printf("Stack A is sorted with a total of %d instructions\n",
-			stack->in);
-	else
-		ft_printf("Stack A is NOT sorted with a total of %d instructions\n",
-			stack->in);
-}
-
 char	**fill_stack(int argc, char **argv)
 {
 	char	**a;
@@ -127,6 +103,56 @@ char	**fill_stack(int argc, char **argv)
 	return (a);
 }
 
+char	**fill_interval(char **a)
+{
+	char	**sorted;
+	char	**interval;
+	char	*tmp;
+	int		i;
+	int		j;
+
+	i = -1;
+	sorted = malloc((ft_stacklen(a) + 1) * sizeof(char*));
+	while (i++ < ft_stacklen(a))
+		sorted[i] = a[i];
+	while (!(is_sorted(sorted)))
+	{
+		i = 0;
+		while (i < ft_stacklen(sorted) - 1)
+		{
+			if (ft_atoi(sorted[i]) > ft_atoi(sorted[i + 1]))
+			{
+				tmp = sorted[i];
+				sorted[i] = sorted[i + 1];
+				sorted[i + 1] = tmp;
+			}
+			i++;
+		}
+	}
+	if (ft_stacklen(sorted) > 50)
+	{
+		interval = malloc((ft_stacklen(sorted) / 20 + 2) * sizeof(char*));
+		i = 1;
+		j = 0;
+		while (i < ft_stacklen(sorted))
+		{
+			if (i % 20 == 0)
+			{
+				interval[j] = sorted[i];
+				j++;
+			}
+			i++;
+		}
+		if (i == ft_stacklen(sorted))
+			interval[j] = sorted[i - 1];
+	}
+	else
+		interval = NULL;
+	free (sorted);
+	return (interval);
+}
+
+
 int	main(int argc, char **argv)
 {
 	t_stack	stack;
@@ -134,33 +160,21 @@ int	main(int argc, char **argv)
 	if(argc < 2)
 		exit_err(USAGE);
 	stack.a = fill_stack(argc, argv);
+	stack.interval = fill_interval(stack.a);
 	if (check_duplicates(stack.a))
 		exit_err("Error\n");
-	stack.b = (char**)malloc ((argc + 1) * sizeof(char*));
+	stack.b = (char**)ft_calloc((argc + 1), sizeof(char*));
 	stack.in = 0;
 	stack.op = ft_strdup("Operation List:\n");
 	print_stacks(&stack);
-	// swap_a(&stack);
-	// push_b(&stack);
-	// push_b(&stack);
-	// push_b(&stack);
-	// print_stacks(&stack);
-	// rotate_ab(&stack);
-	// reverse_ab(&stack);
-	// swap_a(&stack);
-	// push_a(&stack);
-	// push_a(&stack);
-	// push_a(&stack);
 
+	print_interval(&stack);
 	push_swap(&stack);
-	// small_sort(&stack);
-
-
 
 
 	
-	print_stacks(&stack);
-	ft_printf(stack.op);
+	// print_stacks(&stack);
+	// ft_printf(stack.op);
 	free (stack.a);
 	free (stack.b);
 	return (0);

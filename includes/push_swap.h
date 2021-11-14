@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 18:40:03 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/09 18:51:36 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/14 02:33:06 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,19 @@
 typedef struct	s_stack {
 	char	**a;
 	char	**b;
+	char	**interval;
 	char	*op;
 	int		in;
 }	t_stack;
 
 int		push_swap(t_stack *stack);
-void	lesser_swap(t_stack *stack);
-void	small_sort(t_stack *stack);
 
 int		is_sorted(char **stack);
 int		is_sorted_b(char **stack);
+
+void	print_interval(t_stack *stack);
 void	print_stacks(t_stack *stack);
+
 void	add_op(char	**stack_op, char *op);
 
 void	swap_a(t_stack *stack);

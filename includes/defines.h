@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 19:28:41 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/09 15:46:44 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/13 22:16:56 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 # define DEFINES_H
 
 # define USAGE		"Usage: ./push_swap [N1] [N2] ... [Nn]\n"
+
+# define INT_MIN -2147483648
+# define INT_MAX 2147483647
 
 #endif

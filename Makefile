@@ -11,7 +11,7 @@ RM = rm -f
 
 NAME = push_swap
 
-SRCS_FILES = main.c operations.c err.c push_swap.c
+SRCS_FILES = main.c operations.c err.c push_swap.c print.c
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 
@@ -35,20 +35,20 @@ $(NAME): $(LIBFT) $(OBJS) $(INCLUDES)
 	$(CC) -o $(NAME) $(OBJS) $(LFLAGS)
 
 $(LIBFT):
-	make -C $(LIBFT_DIR) printf
+	@make -C $(LIBFT_DIR) printf --no-print-directory
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c $(INCLUDES_DIR) $(INCLUDES)
-	mkdir -p $(OBJS_DIR)
-	$(CC) $(FLAGS) -I $(INCLUDES_DIR) -c $< -o $@
+	@mkdir -p $(OBJS_DIR)
+	@$(CC) $(FLAGS) -I $(INCLUDES_DIR) -c $< -o $@
 
 clean:
-	make -C $(LIBFT_DIR) clean
-	$(RM) $(OBJS)
+	@make -C $(LIBFT_DIR) clean --no-print-directory
+	@$(RM) $(OBJS)
 
 fclean: clean
-	make -C $(LIBFT_DIR) fclean
-	$(RM) $(NAME)
-	rm -rf $(OBJS_DIR)
+	@make -C $(LIBFT_DIR) fclean --no-print-directory
+	@$(RM) $(NAME)
+	@rm -rf $(OBJS_DIR)
 
 re: fclean all
 
