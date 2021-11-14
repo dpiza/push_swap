@@ -40,6 +40,7 @@ rrr : rra and rrb at the same time.
 ## Usage
 
 ```WORK IN PROGRESS```
+![Coding](https://github.com/dpiza/resources/blob/master/gifs/jimc.gif?raw=true)
 
 ## License
 
