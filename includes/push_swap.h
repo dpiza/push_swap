@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 18:40:03 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/14 20:04:11 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/14 20:51:38 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ int		push_swap(t_stack *stack);
 
 int		is_sorted(char **stack);
 int		is_sorted_b(char **stack);
-
+int		greater_check(char **stack);
+int		lesser_check(char **stack);
 int		check_duplicates(char **stack);
+
 char	**fill_stack(int argc, char **argv);
 char	**fill_interval(char **a);
 void	bubble_sort(char **arr);
