@@ -6,33 +6,11 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 14:18:57 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/14 19:47:43 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/14 20:14:07 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-int	check_duplicates(char **stack)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	if (!stack[i])
-		return (0);
-	while (stack[i])
-	{
-		j = i + 1;
-		while (stack[j])
-		{
-			if (ft_atoi(stack[j]) == ft_atoi(stack[i]))
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
 
 char	**fill_stack(int argc, char **argv)
 {

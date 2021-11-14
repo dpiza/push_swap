@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 18:16:53 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/14 00:47:41 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/14 19:45:13 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	print_interval(t_stack *stack)
 	int	i;
 	
 	i = -1;
-	if (stack->interval)
+	if (ft_stacklen(stack->a) > MIN_QSORT)
 	{
 		ft_printf("Intervals:\n");
 		while(stack->interval[++i])
