@@ -1,1 +1,5 @@
+log_error/
 dev_*.c
+checker_linux
+tester.sh
+push_swap

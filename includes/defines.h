@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 19:28:41 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/14 20:00:36 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/15 00:14:39 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # define USAGE		"Usage: ./push_swap [N1] [N2] ... [Nn]\n"
 
-# define INT_MIN -2147483648
-# define INT_MAX 2147483647
-# define MIN_QSORT 50
+# define INT_MIN	-2147483648
+# define INT_MAX	2147483647
+# define MIN_QSORT	50
 
 #endif
