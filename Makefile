@@ -11,7 +11,8 @@ RM = rm -f
 
 NAME = push_swap
 
-SRCS_FILES = main.c operations.c err.c push_swap.c print.c
+SRCS_FILES = main.c init.c push_swap.c print.c err.c free.c \
+			op_common.c op_stack_a.c op_stack_b.c op_stack_ab.c
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 
@@ -27,9 +28,9 @@ all: $(NAME)
 
 bonus: all
 
-Valgrind: $(NAME)
+valgrind: $(NAME)
 	valgrind --leak-check=full --show-leak-kinds=all \
-	--log-file=valgrind-out.txt ./push_swap
+	--track-origins=yes --log-file=valgrind-out.txt ./push_swap 1 3 2
 
 $(NAME): $(LIBFT) $(OBJS) $(INCLUDES)
 	$(CC) -o $(NAME) $(OBJS) $(LFLAGS)
