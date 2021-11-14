@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 14:18:57 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/14 21:14:29 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/15 00:23:58 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ char	**fill_stack(int argc, char **argv)
 	while (++i < argc - 1)
 	{
 		if (!ft_isdigit(*argv[i + 1]) && *argv[i + 1] != '-')
+			exit_err("Error\n");
+		if (ft_atoi(argv[i + 1]) >= INT_MAX)
+			exit_err("Error\n");
+		if (ft_atoi(argv[i + 1]) <= INT_MIN)
 			exit_err("Error\n");
 		a[i] = argv[i + 1];
 	}
