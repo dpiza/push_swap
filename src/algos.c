@@ -6,11 +6,38 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 21:13:28 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/14 22:35:40 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/14 23:51:13 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	quick_sort(t_stack *stack)
+{
+	int	min;
+	int	b_count;
+	int	i;
+	int	j;
+
+	j = 0;
+	min = INT_MIN;
+	while (!(is_sorted(stack->a)))
+	{
+		b_count = select_push(stack, min, ft_atoi(stack->interval[j]));
+		i = b_count;
+		while (i--)
+		{
+			select_sort(stack);
+			push_a(stack);
+		}
+		if (!is_sorted(stack->a))
+			push_n_b(stack, b_count);
+		else
+			push_all(stack);
+		min = ft_atoi(stack->interval[j]);
+		j++;
+	}
+}
 
 void	select_sort(t_stack *stack)
 {
