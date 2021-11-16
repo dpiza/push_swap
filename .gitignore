@@ -2,4 +2,5 @@ log_error/
 dev_*.c
 checker_linux
 tester.sh
+gen_args.sh
 push_swap
