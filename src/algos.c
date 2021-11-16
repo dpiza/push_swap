@@ -6,13 +6,13 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 21:13:28 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/14 23:51:13 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/16 14:43:44 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	quick_sort(t_stack *stack)
+void	merge_sort(t_stack *stack)
 {
 	int	min;
 	int	b_count;

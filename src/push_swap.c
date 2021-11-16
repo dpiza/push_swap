@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 02:42:14 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/14 23:51:32 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/16 14:43:52 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ int	push_swap(t_stack *stack)
 		}
 	}
 	else
-		quick_sort(stack);
+		merge_sort(stack);
 	return (0);
 }
