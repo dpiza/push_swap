@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 21:13:28 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/16 14:43:44 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/21 09:55:02 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,23 @@
 void	merge_sort(t_stack *stack)
 {
 	int	min;
-	int	b_count;
 	int	i;
-	int	j;
 
-	j = 0;
+	i = 0;
 	min = INT_MIN;
 	while (!(is_sorted(stack->a)))
 	{
-		b_count = select_push(stack, min, ft_atoi(stack->interval[j]));
-		i = b_count;
-		while (i--)
+		while (ft_stacklen(stack->a))
+		{
+			select_push(stack, min, ft_atoi(stack->interval[i]));
+			min = ft_atoi(stack->interval[i]);
+			i++;
+		}
+		while (ft_stacklen(stack->b))
 		{
 			select_sort(stack);
 			push_a(stack);
 		}
-		if (!is_sorted(stack->a))
-			push_n_b(stack, b_count);
-		else
-			push_all(stack);
-		min = ft_atoi(stack->interval[j]);
-		j++;
 	}
 }
 
