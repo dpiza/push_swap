@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 14:18:57 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/15 02:01:22 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/22 11:23:06 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,19 @@ char	**fill_stack(int argc, char **argv)
 char	**define_interval(char **arr, int len)
 {
 	char	**interval;
-	int		rem;
+	int		remainder;
 	int		size;
 	int		i;
 	int		j;
 
-	rem = 1;
-	size = 20;
-	if (len > 150)
-		size = 50;
+	remainder = 1;
+	size = SMALL_INTERVAL;
+	if (len > BIG_INTERVAL_LEN)
+		size = BIG_INTERVAL;
 	if (len % size)
-		rem = 2;
-	interval = malloc((len / size + rem) * sizeof(char *));
-	interval[len / size + rem - 1] = '\0';
+		remainder = 2;
+	interval = malloc((len / size + remainder) * sizeof(char *));
+	interval[len / size + remainder - 1] = '\0';
 	i = 0;
 	j = 0;
 	while (++i < len)
