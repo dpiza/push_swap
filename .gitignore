@@ -2,5 +2,6 @@ log_error/
 dev_*.c
 checker_linux
 tester.sh
+pyviz.py
 gen_args.sh
 push_swap
