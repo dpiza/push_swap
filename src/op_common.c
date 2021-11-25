@@ -6,11 +6,44 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 18:39:49 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/14 19:55:07 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/24 23:17:50 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int	select_push(t_stack *stack, int min, int max)
+{
+	int	i;
+	int	count;
+
+	i = ft_stacklen(stack->a);
+	count = 0;
+	while (i > 0)
+	{
+		if (ft_atoi(stack->a[0]) <= max && ft_atoi(stack->a[0]) > min)
+		{
+			push_b(stack);
+			count++;
+		}
+		else
+			rotate_a(stack);
+		i--;
+	}
+	return (count);
+}
+
+void	push_all(t_stack *stack)
+{
+	while (ft_stacklen(stack->b))
+		push_a(stack);
+}
+
+void	push_n_b(t_stack *stack, int n)
+{
+	while (n--)
+		push_b(stack);
+}
 
 void	top_add(char **stack, char *member)
 {
@@ -44,23 +77,4 @@ void	top_rmv(char **stack)
 		i++;
 	}
 	stack[len - 1] = NULL;
-}
-
-int	ft_stacklen(char **s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-void	add_op(char	**stack_op, char *op)
-{
-	char	*tmp;
-
-	tmp = ft_strjoin(*stack_op, op);
-	free (*stack_op);
-	*stack_op = tmp;
 }

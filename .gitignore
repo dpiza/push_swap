@@ -1,7 +1,9 @@
 log_error/
+bkp/
 dev_*.c
 checker_linux
 tester.sh
 pyviz.py
 gen_args.sh
 push_swap
+checker

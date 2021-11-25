@@ -6,44 +6,11 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 02:42:14 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/16 14:43:52 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/24 23:12:15 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-int	select_push(t_stack *stack, int min, int max)
-{
-	int	i;
-	int	count;
-
-	i = ft_stacklen(stack->a);
-	count = 0;
-	while (i > 0)
-	{
-		if (ft_atoi(stack->a[0]) <= max && ft_atoi(stack->a[0]) > min)
-		{
-			push_b(stack);
-			count++;
-		}
-		else
-			rotate_a(stack);
-		i--;
-	}
-	return (count);
-}
-
-void	push_all(t_stack *stack)
-{
-	while (ft_stacklen(stack->b))
-		push_a(stack);
-}
-
-void	push_n_b(t_stack *stack, int n)
-{
-	while (n--)
-		push_b(stack);
-}
 
 int	push_swap(t_stack *stack)
 {
@@ -64,5 +31,24 @@ int	push_swap(t_stack *stack)
 	}
 	else
 		merge_sort(stack);
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
+	t_stack	stack;
+
+	if (argc < 2)
+		exit(0);
+	stack.a = fill_stack(argc, argv);
+	if (check_duplicates(stack.a))
+		exit_err("Error\n");
+	stack.interval = fill_interval(stack.a);
+	stack.b = (char **)ft_calloc((argc + 1), sizeof(char *));
+	stack.in = 0;
+	stack.op = ft_strdup("");
+	push_swap(&stack);
+	ft_printf("%s", stack.op);
+	free_stack(&stack);
 	return (0);
 }
