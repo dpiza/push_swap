@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 14:18:57 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/22 11:23:06 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/25 18:45:55 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	**fill_interval(char **a)
 	while (i++ < ft_stacklen(a))
 		sorted[i] = a[i];
 	bubble_sort(sorted);
-	if (ft_stacklen(sorted) > MIN_QSORT)
+	if (ft_stacklen(sorted) > MIN_MSORT)
 		interval = define_interval(sorted, ft_stacklen(sorted));
 	free (sorted);
 	return (interval);

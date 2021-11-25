@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 19:28:41 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/24 23:39:18 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/25 18:45:33 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 # define TRUE				1
 # define STDIN				0
 /*
-** INT_QSORT is the minimum size to use quick sort algo
+** INT_QSORT is the minimum size to use merge sort algo
 */
-# define MIN_QSORT			50
+# define MIN_MSORT			50
 /*
 ** Interval sizes based on stack size
 ** BIG_INTERVAL for over BIG_INTERVAL_LEN size

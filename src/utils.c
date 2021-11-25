@@ -6,7 +6,7 @@
 /*   By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 18:16:53 by dpiza             #+#    #+#             */
-/*   Updated: 2021/11/24 23:41:37 by dpiza            ###   ########.fr       */
+/*   Updated: 2021/11/25 18:46:12 by dpiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	print_checker(t_stack *stack)
 
 void	free_stack(t_stack *stack)
 {
-	if (ft_stacklen(stack->a) > MIN_QSORT)
+	if (ft_stacklen(stack->a) > MIN_MSORT)
 		free (stack->interval);
 	free (stack->a);
 	free (stack->b);
