@@ -1,6 +1,6 @@
 # push_swap
 
-![42-Badge](https://img.shields.io/badge/%C3%89cole-42SP-blue)![C-Badge](https://img.shields.io/badge/Language-C-lightgrey)[![42Unlicense](https://img.shields.io/badge/License-42Unlicense-yellowgreen)](https://github.com/gcamerli/42unlicense)![WorkingProgress](https://img.shields.io/badge/WORK-IN%20PROGRESS-red)
+![42-Badge](https://img.shields.io/badge/%C3%89cole-42SP-blue)![C-Badge](https://img.shields.io/badge/Language-C-lightgrey)[![42Unlicense](https://img.shields.io/badge/License-42Unlicense-yellowgreen)](https://github.com/gcamerli/42unlicense)![Denny's 42Project Score](https://img.shields.io/badge/Success-86%2F100-brightgreen)
 
 ## Description
 
@@ -39,9 +39,67 @@ rrr : rra and rrb at the same time.
 
 ## Usage
 
-```WORK IN PROGRESS```
+### MANDATORY
 
-![Coding](https://github.com/dpiza/resources/blob/master/gifs/jimc.gif?raw=true)
+To compile the program, run:
+
+```
+$ make
+```
+
+Execute the program providing the number stack as follows:
+
+```
+$ ./push_swap 5 1 4 2 3
+```
+
+The program will return the list of actions needed to sort the provided stack:
+
+```
+ra
+pb
+sa
+pb
+sa
+pb
+pa
+pa
+pa
+```
+
+
+### BONUS
+
+Execute the checker program with the same arguments, followed by the actions returned by push_swap, followed by ``CTRL + D``
+
+```
+$ ./checker 5 1 4 2 3
+ra
+pb
+sa
+pb
+sa
+pb
+pa
+pa
+pa
+```
+
+The checker then, will evaluate if the provided actions did sort the stack or not:
+
+```
+OK
+```
+
+## Algorithm
+
+I used merge sort algorithm for most part, but limited to a few chunks of the original stack. The amount of chunks is related to the size of the stack.
+
+This implementation scored 86/100.
+
+You can check the [push_swap_visualizer](https://github.com/o-reo/push_swap_visualizer) for this solution.
+
+![Push_swap_Visualizer](https://github.com/dpiza/resources/blob/master/gifs/merge_sort_simple_selection.gif?raw=true)
 
 ## License
 
