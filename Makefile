@@ -6,7 +6,7 @@
 #    By: dpiza <dpiza@student.42sp.org.br>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/24 22:45:09 by dpiza             #+#    #+#              #
-#    Updated: 2021/11/24 23:44:42 by dpiza            ###   ########.fr        #
+#    Updated: 2021/11/28 18:08:49 by dpiza            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,6 +99,7 @@ clean:
 fclean: 		clean
 				@make -C $(LIBFT_DIR) fclean --no-print-directory
 				@$(RM) $(NAME)
+				@$(RM) $(CHECKER)
 				@rm -rf $(OBJS_DIR)
 
 re: 			fclean all
